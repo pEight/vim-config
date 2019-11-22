@@ -11,10 +11,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 Plug 'hdima/python-syntax'
 Plug 'othree/html5.vim'
+Plug 'dense-analysis/ale'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'derekwyatt/vim-scala'
 
 Plug 'jiangmiao/auto-pairs'
@@ -66,9 +70,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:airline#extensions#tabline#show_tab_count = 0
 let g:airline#extensions#tabline#show_close_button = 0
-" let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tabs_label = ''
-let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#show_tabs = 1
 
 " Airline theme and fonts
 let g:airline_theme='onedark'
@@ -88,25 +92,16 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-" Add shortcut keyboard for NERDTREE plugin
+" Ale config
+let g:ale_fixers = {
+\	'javascript': ['eslint']
+\ }
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️ '
+" let g:ale_fix_on_save = 1
+
+
+"Add shortcut keyboard for NERDTREE plugin
 map <C-b> :NERDTreeToggle<CR>
-
-" Disable arrow keys and page up/page down
-nnoremap <Left> :echo "No left for you!"<CR>
-vnoremap <Left> :<C-u>echo "No left for you!"<CR>
-
-nnoremap <Right> :echo "No right for you!"<CR>
-vnoremap <Right> :<C-u>echo "No right for you!"<CR>
-
-nnoremap <Up> :echo "No up for you!"<CR>
-vnoremap <Up> :<C-u>echo "No up for you!"<CR>
-
-nnoremap <Down> :echo "No down for you!"<CR>
-vnoremap <Down> :<C-u>echo "No down for you!"<CR>
-
-nnoremap <PageUp> :echo "No page up for you!"<CR>
-vnoremap <PageUp> :<C-u>echo "No page up for you!"<CR>
-
-nnoremap <PageDown> :echo "No page down for you!"<CR>
-vnoremap <PageDown> :<C-u>echo "No page down for you!"<CR>
 
